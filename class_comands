@@ -1,0 +1,105 @@
+ 1  curl -v google.com
+    2  ls
+    3  pwd
+    4  cd ../
+    5  ls
+    6  ls -ld ec2-user/
+    7  cd ../
+    8  ls
+    9  pwd
+   10  cd ../
+   11  pwd
+   12  cd /home/ec2-user/
+   13  ls
+   14  pwd
+   15  mkdir test 
+   16  ls
+   17  ls -d
+   18  ls -ld test/
+   19  ls
+   20  whoami
+   21  vi test/myfile.txt
+   22  clear
+   23  vi test/myfile.txt
+   24  ls
+   25  cd test
+   26  ls
+   27  cd ../
+   28  ls
+   29  pwd
+   30  rm test
+   31  rm -r test
+   32  ls
+   33  yum update -y
+   34  sudo yum update -y
+   35  sudo yum update
+   36  sudo yum update --al
+   37  yum install nginx
+   38  sudo yum install nginx
+   39  pwd
+   40  cd ../
+   41  cd ../../
+   42  ls
+   43  cd etc
+   44  ls
+   45  cd nginx/
+   46  ls
+   47  pwd
+   48  cd conf.d/
+   49  pwd
+   50  ls
+   51  history
+   52  pwd
+   53  cd ../../../
+   54  ls
+   55  pwd
+   56  cd /home/ec2-user/
+   57  pwd
+   58  cd /etc/nginx/conf.d
+   59  ls
+   60  pwd
+   61  cd ../../../
+   62  cd /home/ec2-user/
+   63  ps aux 
+   64  top
+   65  vi /etc/nginx/conf.d/default.conf
+   66  sudo vi /etc/nginx/conf.d/default.conf
+   67  sudo ss -tulnp
+   68  kill 2220
+   69  sudo kill 2220
+   70  sudo ss -tulnp
+   71  ls
+   72  pwd
+   73  systemctl status nginx 
+   74  nginx -t 
+   75  sudo nginx -t 
+   76  systemctl start nginx
+   77  sudo systemctl start nginx
+   78  sudo systemctl status nginx
+   79  pwd
+   80  vi index.html
+   81  sudo systemctl status nginx
+   82  ls -ld /home/ec2-user/
+   83  ls
+   84  ls -ld /home/ec2-user/index.html
+   85  chown ngiinx:nginx  /home/ec2-user/index.html
+   86  chown nginx:nginx  /home/ec2-user/index.html
+   87  sudo chown nginx:nginx  /home/ec2-user/index.html
+   88  ls -ld /home/ec2-user/index.html
+   89  systemctl restart nginx
+   90  sudo systemctl restart nginx
+   91  chmod 755 /home/ec2-user/index.html
+   92  sudo chmod 755 /home/ec2-user/index.html
+   93  ls -ld /home/ec2-user/index.html
+   94  sudo systemctl restart nginx
+   95  chown nginx:nginx /home/ec2-user/
+   96  sudo chown nginx:nginx /home/ec2-user/
+   97  sudo  chmod 755  /home/ec2-user/
+   98  sudo systemctl restart nginx
+   99  history
+  100  vi index.html
+  101  :q!
+  102  sudo vi index.html
+  103  vi index.html
+  104  sudo vi index.html
+  105  history
