@@ -9,3 +9,17 @@ server {
         try_files $uri $uri/ =404;
     }
 }
+
+or 
+
+server {
+    listen 80;
+    server_name 54.82.46.255;  # Replace with your public IP or domain
+
+    root /home/ec2-user/;  # Update the root to the desired directory
+    index index.html;  # The default index file
+
+    location / {
+        try_files $uri $uri/ =404;  # Serve files or return 404 if not found
+    }
+}
