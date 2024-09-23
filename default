@@ -23,3 +23,12 @@ server {
         try_files $uri $uri/ =404;  # Serve files or return 404 if not found
     }
 }
+
+
+
+chown & chmod
+
+sudo chown -R www-data:www-data /home/ec2-user/
+sudo chown -R nginx:nginx /home/ec2-user/
+sudo chmod 755 /home/ec2-user/
+
