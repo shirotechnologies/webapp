@@ -11,10 +11,13 @@
 
 # TERRAFORM Documentation
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-Bement Zeleke left
+
+
+# AWS ACCESS CONFIGURE COMAND
+## aws configure
+
 
 # TERRAFORM COMMANDS 
-aws configure
-terraform init
-terraform plan
-terraform apply
+1. terraform init
+2. terraform plan
+3. terraform apply
