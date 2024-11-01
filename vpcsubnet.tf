@@ -18,10 +18,7 @@ resource "aws_internet_gateway" "iacgw" {
   }
 }
 
-# resource "aws_internet_gateway_attachment" "iac" {
-#   internet_gateway_id = aws_internet_gateway.iacgw.id
-#   vpc_id              = aws_vpc.iac.id
-# }
+
 
 
 
@@ -114,3 +111,6 @@ resource "aws_subnet" "private_subnet_1" {
 #   subnet_id      = aws_subnet.private_subnet_2.id
 #   route_table_id = aws_route_table.private_route.id
 # }
+
+
+
