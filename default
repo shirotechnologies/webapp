@@ -47,8 +47,9 @@ resource "aws_instance" "nginx_server" {
   user_data = <<-EOF
     #!/bin/bash
     # Update the package list and install Nginx
-    apt update -y
-    apt install nginx -y
+
+    yum update -y
+    yum install nginx -y
 
     # Create a custom Nginx configuration file
     cat <<EOL > /etc/nginx/conf.d/default.conf
