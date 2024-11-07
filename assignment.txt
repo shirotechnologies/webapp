@@ -1,0 +1,75 @@
+Midterm Project: Full Infrastructure Deployment with Terraform
+
+In this midterm project, students will design and deploy a complete infrastructure using Terraform. The project requires creating an end-to-end solution, including a fully functional website served by Nginx, complete infrastructure with automated setup, security configurations, and a scalable environment. Students must submit their Terraform code, ensuring all setup and configurations are automated, with no manual steps required.
+
+Project Requirements
+1. Website Development
+Develop a basic, responsive website with a homepage and at least two additional pages (e.g., About, Contact).
+The website should display basic content and demonstrate an understanding of front-end design.
+Place website files in a folder accessible to Nginx on the server.
+2. Infrastructure Deployment with Terraform
+All infrastructure components should be deployed and configured using Terraform to ensure reproducibility and consistency.
+
+Networking Setup:
+VPC (Virtual Private Cloud): Create a VPC with a specified CIDR block for organizing and securing resources.
+Subnets:
+Define both public and private subnets across multiple availability zones to ensure redundancy.
+Public subnet for resources needing internet access (e.g., Nginx web server).
+Private subnet for internal resources (e.g., databases).
+Internet Gateway: Attach an internet gateway to allow public resources to access the internet.
+NAT Gateway: Set up a NAT gateway to allow resources in private subnets to securely initiate outbound connections to the internet.
+Elastic IP (EIP): Allocate an EIP for the NAT Gateway to provide a static IP address.
+Route Tables and Associations: Configure and associate route tables for public and private subnets to manage routing for internet and internal traffic.
+Compute Resources:
+Nginx Web Server:
+Deploy an EC2 instance in the public subnet to serve the website via Nginx.
+Use a user data script to handle the following on instance startup:
+Install and start Nginx.
+Create website directories (e.g., /var/www/mywebsite) and set permissions to ensure www-data user has access.
+Configure Nginx to serve content from /var/www/mywebsite.
+Set ownership and permissions for files to allow Nginx access.
+Restart Nginx to apply the configuration.
+DNS and Domain Configuration:
+Domain Setup with Route 53:
+Configure a hosted zone in AWS Route 53.
+Create A and CNAME records to associate the domain with the public IP or load balancer, allowing public access to the website.
+Security Groups and Access Control:
+Security Groups:
+Allow HTTP/HTTPS access for the Nginx server.
+Restrict SSH access to trusted IPs or allow access only via a bastion host.
+IAM Roles and Policies:
+Configure an IAM role for EC2 instances if they need access to specific AWS services (e.g., accessing an S3 bucket or Secrets Manager).
+Attach the role to the EC2 instance for secure permissions management.
+Optional Scaling and Load Balancing:
+Auto Scaling Group and Load Balancer:
+Deploy an Auto Scaling Group with a launch configuration or template for the Nginx server to ensure high availability.
+Set up an Application Load Balancer (ALB) to distribute traffic across multiple instances in the Auto Scaling Group.
+Logging and Monitoring:
+CloudWatch Monitoring:
+Create CloudWatch log groups for Nginx access and error logs.
+Configure CloudWatch alarms on key metrics like CPU, memory, and network usage to monitor instance health.
+CloudTrail:
+Enable CloudTrail for auditing API activity within your AWS environment.
+3. Data Storage and Access (Optional)
+S3 Bucket for Static Files:
+If the website requires static assets, create an S3 bucket for hosting these files.
+Set appropriate bucket policies to allow public or restricted access as required.
+Database Setup (Optional for dynamic content):
+Configure RDS or another managed database for storing dynamic website data.
+Place the database within private subnets, with a security group to allow access only from the web server.
+Submission Requirements:
+Terraform Code: All components must be fully automated, with no manual setup. Submit the full Terraform code base.
+README Documentation: Include a README file explaining:
+Each component and its configuration.
+Instructions for deploying the environment using Terraform.
+Descriptions of security configurations and design choices.
+Optional Bonus:
+Implement auto-scaling and load balancing to handle high traffic.
+Set up secure access to an S3 bucket for static file hosting.
+Configure database connections for future dynamic content expansion.
+Evaluation Criteria:
+Correctness: All components should deploy correctly and function as specified.
+Automation: Ensure there are no manual steps. Every setup, configuration, and initialization should be handled by Terraform.
+Security: Ensure that security groups, subnets, and access control are properly configured, with least privilege principles.
+Documentation: Provide clear, comprehensive documentation.
+Efficiency: Use modular, reusable Terraform code to follow best practices.

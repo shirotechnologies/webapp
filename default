@@ -26,9 +26,68 @@ server {
 
 
 
+
+
+
 chown & chmod
 
 sudo chown -R www-data:www-data /home/ec2-user/
 sudo chown -R nginx:nginx /home/ec2-user/
 sudo chmod 755 /home/ec2-user/
+
+
+
+
+resource "aws_instance" "nginx_server" {
+  ami           = "ami-0c55b159cbfafe1f0"  # Replace with the desired AMI ID
+  instance_type = var.instance_type
+  key_name      = var.key_name
+  security_groups = [aws_security_group.nginx_sg.name]
+
+  user_data = <<-EOF
+    #!/bin/bash
+    # Update the package list and install Nginx
+
+    yum update -y
+    yum install nginx -y
+
+    # Create a custom Nginx configuration file
+    cat <<EOL > /etc/nginx/conf.d/default.conf
+    server {
+        listen 80;
+        server_name _;
+        
+        location / {
+            root /var/www/html;
+            index index.html;
+        }
+    }
+    EOL
+
+    # Create a custom index.html file
+    mkdir -p /var/www/html
+    cat <<EOL > /var/www/html/index.html
+    <html>
+    <head>
+        <title>Welcome to Nginx!</title>
+    </head>
+    <body>
+        <h1>Hello, Terraform Deployed Nginx Server!</h1>
+    </body>
+    </html>
+    EOL
+
+    # Change ownership of the Nginx web root directory
+    sudo chown -R www-data:www-data /var/www/html
+
+    # Restart Nginx to apply the changes
+    systemctl restart nginx
+    systemctl enable nginx
+  EOF
+
+  tags = {
+    Name = "Nginx_Server"
+  }
+}
+
 
